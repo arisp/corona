@@ -15,6 +15,12 @@ jobs:
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
 
+    - name: Install npm packages
+      shell: bash
+      run: |
+        cd $GITHUB_WORKSPACE/
+        npm install
+        
     - name: Build app
       shell: bash
       run: |
