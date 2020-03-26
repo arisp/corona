@@ -59,7 +59,7 @@ function coronaRecoveredData(data) { return {
     options: {
       title: {
         display: true,
-        text: 'CoViD-19 Cases Recovered',
+        text: 'CoViD-19 Cases Recovered (data source temporarily broken)',
         fontSize: 14
       },
       tooltips: {
