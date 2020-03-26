@@ -46,7 +46,14 @@ function coronaDeathData(data) { return {
           data: Object.values(data.franceDeaths),
           borderColor: "black",
           backgroundColor: "black"
-        }
+        },
+        { // one line graph
+          label: 'Sweden',
+          fill: false,
+          data: Object.values(data.swedenDeaths),
+          borderColor: "green",
+          backgroundColor: "green"
+        },
       ],
     },
     options: {

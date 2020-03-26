@@ -47,7 +47,14 @@ function coronaCaseData(data) { return {
         data: Object.values(data.franceConfirmed),
         borderColor: "black",
         backgroundColor: "black"
-      }
+      },
+      { // one line graph
+        label: 'Sweden',
+        fill: false,
+        data: Object.values(data.swedenConfirmed),
+        borderColor: "green",
+        backgroundColor: "green"
+      },
     ],
   },
   options: {

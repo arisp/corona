@@ -46,7 +46,14 @@ function coronaRecoveredData(data) { return {
           data: Object.values(data.franceRecovered),
           borderColor: "black",
           backgroundColor: "black"
-        }
+        },
+        { // one line graph
+          label: 'Sweden',
+          fill: false,
+          data: Object.values(data.swedenRecovered),
+          borderColor: "green",
+          backgroundColor: "green"
+        },
       ],
     },
     options: {

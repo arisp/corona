@@ -29,7 +29,10 @@ export async function getTimelineData() {
     let jsonFrance;
     let responseFrance = fetch('https://coronapi.azurewebsites.net/timeline/FR').then(async (response) => jsonFrance = await response.json());
 
-    await Promise.all([responseUk, responseItaly, responseSpain, responseGermany, responseGreece, responseFrance]);
+    let jsonSweden;
+    let responseSweden = fetch('https://coronapi.azurewebsites.net/timeline/SE').then(async (response) => jsonSweden = await response.json());
+
+    await Promise.all([responseUk, responseItaly, responseSpain, responseGermany, responseGreece, responseFrance, responseSweden]);
     var result = {};
 
     result.ukDeaths = sortTimeline(jsonUk.location.timelines.deaths.timeline);
@@ -38,6 +41,7 @@ export async function getTimelineData() {
     result.germanyDeaths = sortTimeline(jsonGermany.location.timelines.deaths.timeline);
     result.greeceDeaths = sortTimeline(jsonGreece.location.timelines.deaths.timeline);
     result.franceDeaths = sortTimeline(jsonFrance.location.timelines.deaths.timeline);
+    result.swedenDeaths = sortTimeline(jsonSweden.location.timelines.deaths.timeline);
 
     result.ukConfirmed = sortTimeline(jsonUk.location.timelines.confirmed.timeline);
     result.italyConfirmed = sortTimeline(jsonItaly.location.timelines.confirmed.timeline);
@@ -45,6 +49,7 @@ export async function getTimelineData() {
     result.germanyConfirmed = sortTimeline(jsonGermany.location.timelines.confirmed.timeline);
     result.greeceConfirmed = sortTimeline(jsonGreece.location.timelines.confirmed.timeline);
     result.franceConfirmed = sortTimeline(jsonFrance.location.timelines.confirmed.timeline);
+    result.swedenConfirmed = sortTimeline(jsonSweden.location.timelines.confirmed.timeline);
 
     result.ukRecovered = sortTimeline(jsonUk.location.timelines.recovered.timeline);
     result.italyRecovered = sortTimeline(jsonItaly.location.timelines.recovered.timeline);
@@ -52,6 +57,7 @@ export async function getTimelineData() {
     result.germanyRecovered = sortTimeline(jsonGermany.location.timelines.recovered.timeline);
     result.greeceRecovered = sortTimeline(jsonGreece.location.timelines.recovered.timeline);
     result.franceRecovered = sortTimeline(jsonFrance.location.timelines.recovered.timeline);
+    result.swedenRecovered = sortTimeline(jsonSweden.location.timelines.recovered.timeline);
 
     return result;
 }
