@@ -55,6 +55,20 @@ function coronaCaseData(data) { return {
         borderColor: "green",
         backgroundColor: "green"
       },
+      { // one line graph
+        label: 'China',
+        fill: false,
+        data: Object.values(data.chinaConfirmed),
+        borderColor: "orange",
+        backgroundColor: "orange"
+      },
+      { // one line graph
+        label: 'United States',
+        fill: false,
+        data: Object.values(data.unitedStatesConfirmed),
+        borderColor: "grey",
+        backgroundColor: "grey"
+      },
     ],
   },
   options: {

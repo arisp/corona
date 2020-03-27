@@ -54,6 +54,20 @@ function coronaDeathData(data) { return {
           borderColor: "green",
           backgroundColor: "green"
         },
+        { // one line graph
+          label: 'China',
+          fill: false,
+          data: Object.values(data.chinaDeaths),
+          borderColor: "orange",
+          backgroundColor: "orange"
+        },
+        { // one line graph
+          label: 'United States',
+          fill: false,
+          data: Object.values(data.unitedStatesDeaths),
+          borderColor: "grey",
+          backgroundColor: "grey"
+        },
       ],
     },
     options: {

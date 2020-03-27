@@ -32,7 +32,13 @@ export async function getTimelineData() {
     let jsonSweden;
     let responseSweden = fetch('https://coronapi.azurewebsites.net/timeline/SE').then(async (response) => jsonSweden = await response.json());
 
-    await Promise.all([responseUk, responseItaly, responseSpain, responseGermany, responseGreece, responseFrance, responseSweden]);
+    let jsonChina;
+    let responseChina = fetch('https://coronapi.azurewebsites.net/timeline/CN').then(async (response) => jsonChina = await response.json());
+
+    let jsonUnitedStates;
+    let responseUnitedStates = fetch('https://coronapi.azurewebsites.net/timeline/US').then(async (response) => jsonUnitedStates = await response.json());
+
+    await Promise.all([responseUk, responseItaly, responseSpain, responseGermany, responseGreece, responseFrance, responseSweden, responseChina, responseUnitedStates]);
     var result = {};
 
     result.ukDeaths = sortTimeline(jsonUk.timeline.deaths);
@@ -42,6 +48,9 @@ export async function getTimelineData() {
     result.greeceDeaths = sortTimeline(jsonGreece.timeline.deaths);
     result.franceDeaths = sortTimeline(jsonFrance.timeline.deaths);
     result.swedenDeaths = sortTimeline(jsonSweden.timeline.deaths);
+    result.swedenDeaths = sortTimeline(jsonSweden.timeline.deaths);
+    result.chinaDeaths = sortTimeline(jsonChina.timeline.deaths);
+    result.unitedStatesDeaths = sortTimeline(jsonUnitedStates.timeline.deaths);
 
     result.ukConfirmed = sortTimeline(jsonUk.timeline.cases);
     result.italyConfirmed = sortTimeline(jsonItaly.timeline.cases);
@@ -50,6 +59,8 @@ export async function getTimelineData() {
     result.greeceConfirmed = sortTimeline(jsonGreece.timeline.cases);
     result.franceConfirmed = sortTimeline(jsonFrance.timeline.cases);
     result.swedenConfirmed = sortTimeline(jsonSweden.timeline.cases);
+    result.chinaConfirmed = sortTimeline(jsonChina.timeline.cases);
+    result.unitedStatesConfirmed = sortTimeline(jsonUnitedStates.timeline.cases);
 
     // result.ukRecovered = sortTimeline(jsonUk.location.timelines.recovered.timeline);
     // result.italyRecovered = sortTimeline(jsonItaly.location.timelines.recovered.timeline);
