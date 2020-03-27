@@ -105,7 +105,16 @@ function coronaDeathData(data) { return {
                 unit: 'day'
             },
         }]
-      }
+      },
+      legend: {
+        display: true,
+        labels: {
+            fontColor: 'black',
+            usePointStyle: true,
+            padding: 30,
+            fontSize: 14
+        }
+    }
     }
   }
 }
