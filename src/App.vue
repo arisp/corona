@@ -46,7 +46,7 @@ export default {
     getTimelineData().then(data => {
       this.createChart("death-chart", this.deathData(data));
       this.createChart("case-chart", this.caseData(data));
-      this.createChart("recovered-chart", this.recoveredData(data));
+      //this.createChart("recovered-chart", this.recoveredData(data));
   })
   }
 }

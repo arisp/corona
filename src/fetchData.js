@@ -35,29 +35,29 @@ export async function getTimelineData() {
     await Promise.all([responseUk, responseItaly, responseSpain, responseGermany, responseGreece, responseFrance, responseSweden]);
     var result = {};
 
-    result.ukDeaths = sortTimeline(jsonUk.location.timelines.deaths.timeline);
-    result.italyDeaths = sortTimeline(jsonItaly.location.timelines.deaths.timeline);
-    result.spainDeaths = sortTimeline(jsonSpain.location.timelines.deaths.timeline);
-    result.germanyDeaths = sortTimeline(jsonGermany.location.timelines.deaths.timeline);
-    result.greeceDeaths = sortTimeline(jsonGreece.location.timelines.deaths.timeline);
-    result.franceDeaths = sortTimeline(jsonFrance.location.timelines.deaths.timeline);
-    result.swedenDeaths = sortTimeline(jsonSweden.location.timelines.deaths.timeline);
+    result.ukDeaths = sortTimeline(jsonUk.timeline.deaths);
+    result.italyDeaths = sortTimeline(jsonItaly.timeline.deaths);
+    result.spainDeaths = sortTimeline(jsonSpain.timeline.deaths);
+    result.germanyDeaths = sortTimeline(jsonGermany.timeline.deaths);
+    result.greeceDeaths = sortTimeline(jsonGreece.timeline.deaths);
+    result.franceDeaths = sortTimeline(jsonFrance.timeline.deaths);
+    result.swedenDeaths = sortTimeline(jsonSweden.timeline.deaths);
 
-    result.ukConfirmed = sortTimeline(jsonUk.location.timelines.confirmed.timeline);
-    result.italyConfirmed = sortTimeline(jsonItaly.location.timelines.confirmed.timeline);
-    result.spainConfirmed = sortTimeline(jsonSpain.location.timelines.confirmed.timeline);
-    result.germanyConfirmed = sortTimeline(jsonGermany.location.timelines.confirmed.timeline);
-    result.greeceConfirmed = sortTimeline(jsonGreece.location.timelines.confirmed.timeline);
-    result.franceConfirmed = sortTimeline(jsonFrance.location.timelines.confirmed.timeline);
-    result.swedenConfirmed = sortTimeline(jsonSweden.location.timelines.confirmed.timeline);
+    result.ukConfirmed = sortTimeline(jsonUk.timeline.cases);
+    result.italyConfirmed = sortTimeline(jsonItaly.timeline.cases);
+    result.spainConfirmed = sortTimeline(jsonSpain.timeline.cases);
+    result.germanyConfirmed = sortTimeline(jsonGermany.timeline.cases);
+    result.greeceConfirmed = sortTimeline(jsonGreece.timeline.cases);
+    result.franceConfirmed = sortTimeline(jsonFrance.timeline.cases);
+    result.swedenConfirmed = sortTimeline(jsonSweden.timeline.cases);
 
-    result.ukRecovered = sortTimeline(jsonUk.location.timelines.recovered.timeline);
-    result.italyRecovered = sortTimeline(jsonItaly.location.timelines.recovered.timeline);
-    result.spainRecovered = sortTimeline(jsonSpain.location.timelines.recovered.timeline);
-    result.germanyRecovered = sortTimeline(jsonGermany.location.timelines.recovered.timeline);
-    result.greeceRecovered = sortTimeline(jsonGreece.location.timelines.recovered.timeline);
-    result.franceRecovered = sortTimeline(jsonFrance.location.timelines.recovered.timeline);
-    result.swedenRecovered = sortTimeline(jsonSweden.location.timelines.recovered.timeline);
+    // result.ukRecovered = sortTimeline(jsonUk.location.timelines.recovered.timeline);
+    // result.italyRecovered = sortTimeline(jsonItaly.location.timelines.recovered.timeline);
+    // result.spainRecovered = sortTimeline(jsonSpain.location.timelines.recovered.timeline);
+    // result.germanyRecovered = sortTimeline(jsonGermany.location.timelines.recovered.timeline);
+    // result.greeceRecovered = sortTimeline(jsonGreece.location.timelines.recovered.timeline);
+    // result.franceRecovered = sortTimeline(jsonFrance.location.timelines.recovered.timeline);
+    // result.swedenRecovered = sortTimeline(jsonSweden.location.timelines.recovered.timeline);
 
     return result;
 }
