@@ -13,7 +13,8 @@
     "core-js": "^3.6.4",
     "lodash": "^4.17.15",
     "moment": "^2.24.0",
-    "vue": "^2.6.11"
+    "vue": "^2.6.11",
+    "vue-chartjs": "^3.5.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.2.0",

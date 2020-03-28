@@ -62,13 +62,5 @@ export async function getTimelineData() {
     result.chinaConfirmed = sortTimeline(jsonChina.timeline.cases);
     result.unitedStatesConfirmed = sortTimeline(jsonUnitedStates.timeline.cases);
 
-    // result.ukRecovered = sortTimeline(jsonUk.location.timelines.recovered.timeline);
-    // result.italyRecovered = sortTimeline(jsonItaly.location.timelines.recovered.timeline);
-    // result.spainRecovered = sortTimeline(jsonSpain.location.timelines.recovered.timeline);
-    // result.germanyRecovered = sortTimeline(jsonGermany.location.timelines.recovered.timeline);
-    // result.greeceRecovered = sortTimeline(jsonGreece.location.timelines.recovered.timeline);
-    // result.franceRecovered = sortTimeline(jsonFrance.location.timelines.recovered.timeline);
-    // result.swedenRecovered = sortTimeline(jsonSweden.location.timelines.recovered.timeline);
-
     return result;
 }
