@@ -12,31 +12,31 @@ function sortTimeline(timeline) {
 
 export async function getTimelineData() {
     let jsonUk;
-    let responseUk = fetch('https://coronapi.azurewebsites.net/timeline/GB').then(async (response) => jsonUk = await response.json());
+    let responseUk = fetch('https://corona.lmao.ninja/v2/historical/uk').then(async (response) => jsonUk = await response.json());
 
     let jsonItaly;
-    let responseItaly = fetch('https://coronapi.azurewebsites.net/timeline/IT').then(async (response) => jsonItaly = await response.json());
+    let responseItaly = fetch('https://corona.lmao.ninja/v2/historical/italy').then(async (response) => jsonItaly = await response.json());
 
     let jsonSpain;
-    let responseSpain = fetch('https://coronapi.azurewebsites.net/timeline/ES').then(async (response) => jsonSpain = await response.json());
+    let responseSpain = fetch('https://corona.lmao.ninja/v2/historical/spain').then(async (response) => jsonSpain = await response.json());
 
     let jsonGermany;
-    let responseGermany = fetch('https://coronapi.azurewebsites.net/timeline/DE').then(async (response) => jsonGermany = await response.json());
+    let responseGermany = fetch('https://corona.lmao.ninja/v2/historical/germany').then(async (response) => jsonGermany = await response.json());
 
     let jsonGreece;
-    let responseGreece = fetch('https://coronapi.azurewebsites.net/timeline/GR').then(async (response) => jsonGreece = await response.json());
+    let responseGreece = fetch('https://corona.lmao.ninja/v2/historical/greece').then(async (response) => jsonGreece = await response.json());
 
     let jsonFrance;
-    let responseFrance = fetch('https://coronapi.azurewebsites.net/timeline/FR').then(async (response) => jsonFrance = await response.json());
+    let responseFrance = fetch('https://corona.lmao.ninja/v2/historical/france').then(async (response) => jsonFrance = await response.json());
 
     let jsonSweden;
-    let responseSweden = fetch('https://coronapi.azurewebsites.net/timeline/SE').then(async (response) => jsonSweden = await response.json());
+    let responseSweden = fetch('https://corona.lmao.ninja/v2/historical/sweden').then(async (response) => jsonSweden = await response.json());
 
     let jsonChina;
-    let responseChina = fetch('https://coronapi.azurewebsites.net/timeline/CN').then(async (response) => jsonChina = await response.json());
+    let responseChina = fetch('https://corona.lmao.ninja/v2/historical/china').then(async (response) => jsonChina = await response.json());
 
     let jsonUnitedStates;
-    let responseUnitedStates = fetch('https://coronapi.azurewebsites.net/timeline/US').then(async (response) => jsonUnitedStates = await response.json());
+    let responseUnitedStates = fetch('https://corona.lmao.ninja/v2/historical/usa').then(async (response) => jsonUnitedStates = await response.json());
 
     await Promise.all([responseUk, responseItaly, responseSpain, responseGermany, responseGreece, responseFrance, responseSweden, responseChina, responseUnitedStates]);
     var result = {};
