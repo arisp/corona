@@ -12,13 +12,13 @@
 import DeathChart from './components/DeathChart.vue'
 import CaseChart from './components/CaseChart.vue'
 import { getTimelineData } from "./fetchData.js";
+import { bus } from './main.js'
 
 export default {
   components : { DeathChart, CaseChart },
   mounted() {
     getTimelineData().then(data => {
-      this.$refs.deathChart.createChart(data);
-      this.$refs.caseChart.createChart(data);
+      bus.$emit('render', data);
     })
   }
 }
