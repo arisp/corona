@@ -1,8 +1,8 @@
 <template>
   <div>
-    <DeathChart ref="deathChart"/>
+    <DeathChart/>
     <div style="height: 25px"/>
-    <CaseChart ref="caseChart"/>
+    <CaseChart/>
   </div>
 </template>
 
@@ -11,11 +11,15 @@
 
 import DeathChart from './components/DeathChart.vue'
 import CaseChart from './components/CaseChart.vue'
+
 import { getTimelineData } from "./fetchData.js";
 import { bus } from './main.js'
 
 export default {
-  components : { DeathChart, CaseChart },
+  components : {
+    DeathChart,
+    CaseChart
+  },
   mounted() {
     getTimelineData().then(data => {
       bus.$emit('render', data);
@@ -28,7 +32,6 @@ var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=wi
     instrumentationKey:"fc525196-eb79-4986-9d43-6a62411ab21d"
 }
 );window[aiName]=aisdk,aisdk.queue&&0===aisdk.queue.length&&aisdk.trackPageView({});
-
 
 </script>
 

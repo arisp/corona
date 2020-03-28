@@ -11,7 +11,7 @@ var chartOptions = {
   tooltips: {
     position: 'nearest',
     mode: 'index',
-    intersect: false,
+    intersect: true,
     callbacks: {
       title: function(tooltipItem) {
         let title = moment(tooltipItem[0].xLabel).format("MMM Do YYYY");
@@ -53,6 +53,5 @@ var chartOptions = {
     }
   }
 }
-
-        
+     
 export default chartOptions;

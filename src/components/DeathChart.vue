@@ -2,7 +2,7 @@
 
 import { Line } from 'vue-chartjs'
 
-import parseDeathData from "../death-data.js";
+import parseDeathsData from "../death-data.js";
 import chartOptions from '../chartOptions.js'
 
 import { bus } from '../main.js'
@@ -11,21 +11,12 @@ export default {
   extends: Line,
   name: "DeathChart",
   mounted() {
-    bus.$on('render', (chartData) => {
-      let parsedData = parseDeathData(chartData);
+    bus.$on('render', (receivedData) => {
+      let deathsData = parseDeathsData(receivedData);
       chartOptions.title.text = 'CoViD-19 Recorded Deaths';
 
-      this.renderChart(parsedData.data, chartOptions);
+      this.renderChart(deathsData, chartOptions);
     });
-  },
-  data() {
-    return {
-      parseDeathData: parseDeathData
-    };
   }
 }
 </script>
-
-<style scoped>
-
-</style>

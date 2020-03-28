@@ -1,55 +1,22 @@
-function parseCaseData(data) { return {
-  data: {
-    labels: Object.keys(data.ukConfirmed),
-    datasets: [
-      { // one line graph
-        label: 'UK',
-        fill: false,
-        data: Object.values(data.ukConfirmed),
-      },
-      { // one line graph
-        label: 'Italy',
-        fill: false,
-        data: Object.values(data.italyConfirmed),
-      },
-      { // one line graph
-        label: 'Spain',
-        fill: false,
-        data: Object.values(data.spainConfirmed),
-      },
-      { // one line graph
-        label: 'Germany',
-        fill: false,
-        data: Object.values(data.germanyConfirmed),
-      },
-      { // one line graph
-        label: 'Greece',
-        fill: false,
-        data: Object.values(data.greeceConfirmed),
-      },
-      { // one line graph
-        label: 'France',
-        fill: false,
-        data: Object.values(data.franceConfirmed),
-      },
-      { // one line graph
-        label: 'Sweden',
-        fill: false,
-        data: Object.values(data.swedenConfirmed),
-      },
-      { // one line graph
-        label: 'China',
-        fill: false,
-        data: Object.values(data.chinaConfirmed),
-      },
-      { // one line graph
-        label: 'United States',
-        fill: false,
-        data: Object.values(data.unitedStatesConfirmed),
-      },
-    ],
-  },
-}
+function parseCasesData(data) {
+  return {
+      labels: Object.keys(data.get("uk").data.timeline.cases),
+      datasets: generateDatasets(data)
+  }
 }
   
-export default parseCaseData;
+function generateDatasets(data) {
+  let datasetArray = [];
+
+  for (let country of data.keys()) {
+    datasetArray.push({
+      label: data.get(country).name,
+      fill: false,
+      data: Object.values(data.get(country).data.timeline.cases),
+    });
+  }
+
+  return datasetArray;
+}
+
+export default parseCasesData;

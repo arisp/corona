@@ -1,56 +1,22 @@
-function parseDeathData(data) { return {
-    
-    data: {
-      labels: Object.keys(data.ukDeaths),
-      datasets: [
-        { // one line graph
-          label: 'UK',
-          fill: false,
-          data: Object.values(data.ukDeaths),
-        },
-        { // one line graph
-          label: 'Italy',
-          fill: false,
-          data: Object.values(data.italyDeaths),
-        },
-        { // one line graph
-          label: 'Spain',
-          fill: false,
-          data: Object.values(data.spainDeaths),
-        },
-        { // one line graph
-          label: 'Germany',
-          fill: false,
-          data: Object.values(data.germanyDeaths),
-        },
-        { // one line graph
-          label: 'Greece',
-          fill: false,
-          data: Object.values(data.greeceDeaths),
-        },
-        { // one line graph
-          label: 'France',
-          fill: false,
-          data: Object.values(data.franceDeaths),
-        },
-        { // one line graph
-          label: 'Sweden',
-          fill: false,
-          data: Object.values(data.swedenDeaths),
-        },
-        { // one line graph
-          label: 'China',
-          fill: false,
-          data: Object.values(data.chinaDeaths),
-        },
-        { // one line graph
-          label: 'United States',
-          fill: false,
-          data: Object.values(data.unitedStatesDeaths),
-        },
-      ],
-    }   
+function parseDeathsData(data) {
+  return {  
+      labels: Object.keys(data.get("uk").data.timeline.deaths),
+      datasets: generateDatasets(data),
   }
 }
 
-export default parseDeathData;
+function generateDatasets(data) {
+  let datasetArray = [];
+
+  for (let country of data.keys()) {
+    datasetArray.push({
+      label: data.get(country).name,
+      fill: false,
+      data: Object.values(data.get(country).data.timeline.deaths),
+    });
+  }
+
+  return datasetArray;
+}
+
+export default parseDeathsData;
