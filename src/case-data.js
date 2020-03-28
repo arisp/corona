@@ -1,4 +1,6 @@
 import moment from 'moment/src/moment';
+import 'chartjs-plugin-colorschemes/src/plugins/plugin.colorschemes';
+import { ClassicMedium10 } from 'chartjs-plugin-colorschemes/src/colorschemes/colorschemes.tableau';
 
 function coronaCaseData(data) { return {
   type: 'line',
@@ -10,64 +12,46 @@ function coronaCaseData(data) { return {
         label: 'UK',
         fill: false,
         data: Object.values(data.ukConfirmed),
-        borderColor: "purple",
-        backgroundColor: "purple"
       },
       { // one line graph
         label: 'Italy',
         fill: false,
         data: Object.values(data.italyConfirmed),
-        borderColor: "blue",
-        backgroundColor: "blue"
       },
       { // one line graph
         label: 'Spain',
         fill: false,
         data: Object.values(data.spainConfirmed),
-        borderColor: "red",
-        backgroundColor: "red"
       },
       { // one line graph
         label: 'Germany',
         fill: false,
         data: Object.values(data.germanyConfirmed),
-        borderColor: "yellow",
-        backgroundColor: "yellow"
       },
       { // one line graph
         label: 'Greece',
         fill: false,
         data: Object.values(data.greeceConfirmed),
-        borderColor: "pink",
-        backgroundColor: "pink"
       },
       { // one line graph
         label: 'France',
         fill: false,
         data: Object.values(data.franceConfirmed),
-        borderColor: "black",
-        backgroundColor: "black"
       },
       { // one line graph
         label: 'Sweden',
         fill: false,
         data: Object.values(data.swedenConfirmed),
-        borderColor: "green",
-        backgroundColor: "green"
       },
       { // one line graph
         label: 'China',
         fill: false,
         data: Object.values(data.chinaConfirmed),
-        borderColor: "orange",
-        backgroundColor: "orange"
       },
       { // one line graph
         label: 'United States',
         fill: false,
         data: Object.values(data.unitedStatesConfirmed),
-        borderColor: "grey",
-        backgroundColor: "grey"
       },
     ],
   },
@@ -114,6 +98,11 @@ function coronaCaseData(data) { return {
           usePointStyle: true,
           padding: 30,
           fontSize: 14
+      }
+    },
+    plugins: {
+      colorschemes: {
+          scheme: ClassicMedium10
       }
     }
   }
