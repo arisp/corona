@@ -56,6 +56,7 @@ function coronaCaseData(data) { return {
     ],
   },
   options: {
+    aspectRatio: 2.8,
     title: {
       display: true,
       text: 'CoViD-19 Confirmed Cases',
@@ -96,8 +97,8 @@ function coronaCaseData(data) { return {
       labels: {
           fontColor: 'black',
           usePointStyle: true,
-          padding: 30,
-          fontSize: 14
+          padding: 15,
+          fontSize: 12
       }
     },
     plugins: {

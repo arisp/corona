@@ -20,7 +20,7 @@ var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=wi
 import Chart from "chart.js";
 import caseData from "./case-data.js";
 import deathData from "./death-data.js";
-import recoveredData from "./recovered-data.js";
+//import recoveredData from "./recovered-data.js";
 import { getTimelineData } from "./fetchData.js";
 
 export default {
@@ -39,7 +39,7 @@ export default {
     return {
       caseData: caseData,
       deathData: deathData,
-      recoveredData: recoveredData
+      //recoveredData: recoveredData
     };
   },
   mounted() {
