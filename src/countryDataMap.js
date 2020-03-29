@@ -26,6 +26,9 @@ var countryDataMap = new Map([
     ["usa", {
         name: "United States"
     }],
+    ["singapore", {
+        name: "Singapore"
+    }],
 ]);
 
 export default countryDataMap;
