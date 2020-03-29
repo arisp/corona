@@ -1,5 +1,10 @@
 <template>
   <div>
+    <div id="github-buttons">
+      <github-button class="button" href="https://github.com/arisp/corona" data-icon="octicon-star" data-show-count="true" aria-label="Star arisp/corona on GitHub">Star</github-button>
+      <github-button class="button" href="https://github.com/arisp/corona/fork" data-icon="octicon-repo-forked" data-show-count="true" aria-label="Fork arisp/corona on GitHub">Fork</github-button>
+      <github-button class="button" href="https://github.com/arisp/corona/issues" data-icon="octicon-issue-opened" data-show-count="true" aria-label="Issue arisp/corona on GitHub">Issue</github-button>
+    </div>
     <DeathChart/>
     <div style="height: 25px"/>
     <CaseChart/>
@@ -14,12 +19,14 @@
 import DeathChart from './components/DeathChart.vue'
 import CaseChart from './components/CaseChart.vue'
 import LatestChart from './components/LatestChart.vue'
+import GithubButton from 'vue-github-button'
 
 import { getTimelineData } from "./fetchData.js";
 import { bus } from './main.js'
 
 export default {
   components : {
+    GithubButton,
     DeathChart,
     CaseChart,
     LatestChart
@@ -40,5 +47,10 @@ var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=wi
 </script>
 
 <style scoped>
-
+#github-buttons {
+  float: right;
+}
+.button {
+  padding-left: 5px;
+}
 </style>

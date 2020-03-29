@@ -14,7 +14,8 @@
     "lodash": "^4.17.15",
     "moment": "^2.24.0",
     "vue": "^2.6.11",
-    "vue-chartjs": "^3.5.0"
+    "vue-chartjs": "^3.5.0",
+    "vue-github-button": "^1.1.2"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.2.0",
