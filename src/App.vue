@@ -3,6 +3,8 @@
     <DeathChart/>
     <div style="height: 25px"/>
     <CaseChart/>
+    <div style="height: 25px"/>
+    <LatestChart/>
   </div>
 </template>
 
@@ -11,6 +13,7 @@
 
 import DeathChart from './components/DeathChart.vue'
 import CaseChart from './components/CaseChart.vue'
+import LatestChart from './components/LatestChart.vue'
 
 import { getTimelineData } from "./fetchData.js";
 import { bus } from './main.js'
@@ -18,7 +21,8 @@ import { bus } from './main.js'
 export default {
   components : {
     DeathChart,
-    CaseChart
+    CaseChart,
+    LatestChart
   },
   mounted() {
     getTimelineData().then(data => {

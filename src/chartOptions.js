@@ -15,7 +15,22 @@ var chartOptions = {
     callbacks: {
       title: function(tooltipItem) {
         let title = moment(tooltipItem[0].xLabel).format("MMM Do YYYY");
-          return title;
+        return title;
+      },
+      label: function(tooltipItem, data) {
+        let label = " " + data.datasets[tooltipItem.datasetIndex].label;
+
+        let valueDayBefore = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index - 1];
+        let valueToday = tooltipItem.yLabel;
+        let diff = valueToday - valueDayBefore;
+        if (diff > 0) {
+          label = label + ": " + valueToday.toLocaleString() + " (+" + diff.toLocaleString() + ")";
+        }
+        else {
+          label = label + ": " + valueToday.toLocaleString() + " (=)";
+        }
+
+        return label;
       }
     },
     itemSort: function (a, b) {
@@ -28,7 +43,6 @@ var chartOptions = {
     yAxes: [{
       ticks: {
         beginAtZero: true,
-        padding: 10,
       }
     }],
     xAxes: [{
@@ -49,7 +63,8 @@ var chartOptions = {
   },
   plugins: {
     colorschemes: {
-        scheme: ClassicMedium10
+        scheme: ClassicMedium10,
+        fillAlpha: 0.4
     }
   }
 }
