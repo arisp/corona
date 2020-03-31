@@ -68,5 +68,19 @@ var chartOptions = {
     }
   }
 }
-     
+
+export function getLabelsFromDateKeys(data) {
+  let dates = data;
+  dates.push(moment(dates[dates.length - 1]).add(1, 'days').format('MM/DD/YY'));
+  return dates;
+}
+
+export function getValueDataFromTimeline(timelineData, latestData) {
+  let historicalValues = Object.values(timelineData);
+    if (latestData > historicalValues[historicalValues.length - 1]) {
+      historicalValues.push(latestData);
+    }
+  return historicalValues;
+}
+    
 export default chartOptions;

@@ -1,6 +1,9 @@
+import { getLabelsFromDateKeys } from './historicalChartUtils.js';
+import { getValueDataFromTimeline } from './historicalChartUtils.js'
+
 function parseCasesData(data) {
   return {
-      labels: Object.keys(data.get("uk").data.timeline.cases),
+      labels: getLabelsFromDateKeys(Object.keys(data.get("uk").data.timeline.cases)),
       datasets: generateDatasets(data)
   }
 }
@@ -9,10 +12,13 @@ function generateDatasets(data) {
   let datasetArray = [];
 
   for (let country of data.keys()) {
+    let casesTimelineData = data.get(country).data.timeline.cases;
+    let casesLatestData = data.get(country).latest.cases;
+
     datasetArray.push({
       label: data.get(country).name,
       fill: false,
-      data: Object.values(data.get(country).data.timeline.cases),
+      data: getValueDataFromTimeline(casesTimelineData, casesLatestData),
     });
   }
 

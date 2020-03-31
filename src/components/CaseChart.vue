@@ -3,7 +3,7 @@
 import { Line } from 'vue-chartjs'
 
 import parseCasesData from "../case-data.js";
-import chartOptions from '../chartOptions.js'
+import chartOptions from '../historicalChartUtils.js'
 
 import { bus } from '../main.js'
 
