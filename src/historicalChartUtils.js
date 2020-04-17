@@ -41,7 +41,7 @@ var chartOptions = {
   lineTension: 1,
   scales: {
     yAxes: [{
-      type: 'logarithmic',
+      type: 'linear',
       ticks: {
         beginAtZero: true,
       }
