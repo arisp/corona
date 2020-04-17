@@ -10,7 +10,7 @@ export async function getTimelineData() {
     }
 
     for (let country of countryDataMap.keys()) {
-        let requestPromise = fetch('https://corona.lmao.ninja/countries/' + country).then(async (response) => countryDataMap.get(country).latest = await response.json());
+        let requestPromise = fetch('https://corona.lmao.ninja/v2/countries/' + country).then(async (response) => countryDataMap.get(country).latest = await response.json());
         requestPromises.push(requestPromise);
     }
 
