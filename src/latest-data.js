@@ -40,6 +40,12 @@ function parseLatestData(data) {
         recovered.push(data.get(country).latest.recovered);
     }
 
+    let testsPerMillion = [];
+
+    for (let country of data.keys()) {
+        testsPerMillion.push(data.get(country).latest.testsPerOneMillion);
+    }
+
     datasetArray.push({
         label: "Deaths per million",
         data: deathsPerMillion
@@ -63,6 +69,11 @@ function parseLatestData(data) {
     datasetArray.push({
         label: "Recovered",
         data: recovered
+    });
+
+    datasetArray.push({
+        label: "Tests per million",
+        data: testsPerMillion
     });
   
     return datasetArray;
