@@ -5,12 +5,12 @@ export async function getTimelineData() {
     let requestPromises = [];
 
     for (let country of countryDataMap.keys()) {
-        let requestPromise = fetch('https://corona.lmao.ninja/v2/historical/' + country).then(async (response) => countryDataMap.get(country).data = await response.json());
+        let requestPromise = fetch('http://covid-stats-api.westeurope.azurecontainer.io:3000/v2/historical/' + country).then(async (response) => countryDataMap.get(country).data = await response.json());
         requestPromises.push(requestPromise);
     }
 
     for (let country of countryDataMap.keys()) {
-        let requestPromise = fetch('https://corona.lmao.ninja/v2/countries/' + country).then(async (response) => countryDataMap.get(country).latest = await response.json());
+        let requestPromise = fetch('http://covid-stats-api.westeurope.azurecontainer.io:3000/v2/countries/' + country).then(async (response) => countryDataMap.get(country).latest = await response.json());
         requestPromises.push(requestPromise);
     }
 
