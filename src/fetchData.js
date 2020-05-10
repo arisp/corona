@@ -5,7 +5,7 @@ export async function getTimelineData() {
     let requestPromises = [];
 
     for (let country of countryDataMap.keys()) {
-        let requestPromise = fetch('https://ypw2sf9hei.execute-api.us-east-1.amazonaws.com/prod/v2/historical/' + country).then(async (response) => countryDataMap.get(country).data = await response.json());
+        let requestPromise = fetch('https://ypw2sf9hei.execute-api.us-east-1.amazonaws.com/prod/v2/historical/' + country + '?lastdays=60').then(async (response) => countryDataMap.get(country).data = await response.json());
         requestPromises.push(requestPromise);
     }
 
