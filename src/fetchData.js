@@ -5,12 +5,12 @@ export async function getTimelineData() {
     let requestPromises = [];
 
     for (let country of countryDataMap.keys()) {
-        let requestPromise = fetch('https://covid-stats-api.westeurope.azurecontainer.io/v2/historical/' + country).then(async (response) => countryDataMap.get(country).data = await response.json());
+        let requestPromise = fetch('https://3.227.16.207/v2/historical/' + country).then(async (response) => countryDataMap.get(country).data = await response.json());
         requestPromises.push(requestPromise);
     }
 
     for (let country of countryDataMap.keys()) {
-        let requestPromise = fetch('https://covid-stats-api.westeurope.azurecontainer.io/v2/countries/' + country).then(async (response) => countryDataMap.get(country).latest = await response.json());
+        let requestPromise = fetch('https://3.227.16.207/v2/countries/' + country).then(async (response) => countryDataMap.get(country).latest = await response.json());
         requestPromises.push(requestPromise);
     }
 
